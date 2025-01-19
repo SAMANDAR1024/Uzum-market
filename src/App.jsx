@@ -1,3 +1,4 @@
+import { useState } from "react";
 import uzb from "./assets/uzb.svg";
 import lakatsiya from "./assets/lakatsiya.svg";
 import logo from "./assets/uzumMarket.svg";
@@ -8,15 +9,45 @@ import layk from "./assets/layk.svg";
 import savat from "./assets/savat.svg";
 import gul from "./assets/gul.svg";
 import x from "./assets/x.svg";
-import { useState } from "react";
 import Katalog from "./Katalog";
+import Input from "./companents/InpuT";
+import Carusel from "./companents/Carusel";
+import Buttons from "./companents/buttons/Buttons";
+import Isitgichlar from "./companents/buttons/Isitgichlar";
+import Texnika from "./companents/buttons/Texnika";
+import Avto from "./companents/buttons/Avto";
+import Garderob from "./companents/buttons/Garderob";
 function App() {
+  const items = [
+    {
+      image:
+        " https://image.winudf.com/v2/image1/dXoudXp1bS5hcHBfYmFubmVyXzE2NjcxOTk5NTRfMDY5/banner.jpg?fakeurl=1",
+      alt: "Slide 1",
+    },
+    {
+      image:
+        " https://image.winudf.com/v2/image1/dXoudXp1bS5hcHBfYmFubmVyXzE2NjcxOTk5NTRfMDY5/banner.jpg?fakeurl=1",
+      alt: "Slide 2",
+    },
+    {
+      image:
+        " https://image.winudf.com/v2/image1/dXoudXp1bS5hcHBfYmFubmVyXzE2NjcxOTk5NTRfMDY5/banner.jpg?fakeurl=1",
+      alt: "Slide 3",
+    },
+  ];
   return (
     <>
       <Uzum>
         <Row />
         <TwoRow />
         <ThreeRow />
+        <Carusel items={items} />
+        <Buttons>
+          <Isitgichlar />
+          <Texnika />
+          <Avto />
+          <Garderob />
+        </Buttons>
       </Uzum>
     </>
   );
@@ -125,6 +156,8 @@ function LogoImg() {
 }
 function BtnInputs() {
   const [katalog, setKatalog] = useState(false);
+  const [inpuT, setInpuT] = useState(false);
+
   // const [xImg, setXImg] = useState(false)
   return (
     <div>
@@ -145,16 +178,18 @@ function BtnInputs() {
         </button>
         <div className="flex items-center  relative">
           <input
-            className="w-[450px] border-gray-200 border-2  p-2 rounded-lg bg-white "
+            onClick={() => setInpuT(!inpuT)}
+            className=" w-[450px]   z-10 border-gray-200 border-2  p-2 rounded-lg bg-white "
             type="text"
             placeholder="Mahsulotlar va turkumlar izlash"
           />
-          <button className="w-20 bg-[#F2F4F7] p-[12px] px-8 absolute right-0  rounded-lg">
+          <button className="w-20 z-20  bg-[#F2F4F7] p-[12px] px-8 absolute right-0  rounded-lg">
             <img src={poisk} alt="" />
           </button>
         </div>
       </div>
       {katalog && <Katalog />}
+      {inpuT && <Input />}
     </div>
   );
 }
@@ -213,4 +248,5 @@ function DropDown() {
     </div>
   );
 }
+
 export default App;
