@@ -2,7 +2,7 @@
 // import "./App.css"
 // function Katalog() {
 //   return (
-//     <div className='w-full fixed top-27 left-5 h-[640px] bg-white '>
+//     <div className='w-full fixed top-27 z-20 left-5 h-[640px] bg-white '>
 //        <div className="menu-container">
 //       <div className="sidebar">
 //         <ul>
