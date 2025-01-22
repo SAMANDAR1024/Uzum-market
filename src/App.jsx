@@ -17,9 +17,24 @@ import Isitgichlar from "./companents/buttons/Isitgichlar";
 import Texnika from "./companents/buttons/Texnika";
 import Avto from "./companents/buttons/Avto";
 import Garderob from "./companents/buttons/Garderob";
-import Cards from "./companents/Cards";
 import CardMap from "./companents/CardMap";
+import { Routes, Route } from "react-router";
+
 function App() {
+  return (
+    <>
+      <Uzum>
+        <Row />
+        <TwoRow />
+        <ThreeRow />
+      </Uzum>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </>
+  );
+}
+function HomePage() {
   const items = [
     {
       image:
@@ -37,22 +52,18 @@ function App() {
       alt: "Slide 3",
     },
   ];
+
   return (
-    <>
-      <Uzum>
-        <Row />
-        <TwoRow />
-        <ThreeRow />
-        <Carusel items={items} />
-        <Buttons>
-          <Isitgichlar />
-          <Texnika />
-          <Avto />
-          <Garderob />
-        </Buttons>
-        <CardMap />
-      </Uzum>
-    </>
+    <div>
+      <Carusel items={items} />
+      <Buttons>
+        <Isitgichlar />
+        <Texnika />
+        <Avto />
+        <Garderob />
+      </Buttons>
+      <CardMap />
+    </div>
   );
 }
 
