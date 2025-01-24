@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import uzb from "./assets/uzb.svg";
 import lakatsiya from "./assets/lakatsiya.svg";
 import logo from "./assets/uzumMarket.svg";
@@ -18,7 +19,7 @@ import Texnika from "./companents/buttons/Texnika";
 import Avto from "./companents/buttons/Avto";
 import Garderob from "./companents/buttons/Garderob";
 import CardMap from "./companents/CardMap";
-import { Routes, Route } from "react-router";
+import About from "./companents/About";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       </Uzum>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about/:id" element={<About />} />
       </Routes>
     </>
   );
@@ -166,7 +168,13 @@ function TwoRow() {
 }
 
 function LogoImg() {
-  return <img src={logo} alt="logo" />;
+  return (
+    <Link to={"/"}>
+      <img style={{
+        cursor:"pointer"
+      }} src={logo} alt="logo" />
+    </Link>
+  );
 }
 
 function SearchInput() {
